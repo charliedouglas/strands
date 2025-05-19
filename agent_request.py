@@ -1,6 +1,5 @@
 from strands import Agent, tool
-from strands_tools import file_read, file_write, python_repl, http_request
-from strands.agent.conversation_manager import SlidingWindowConversationManager
+from strands_tools import http_request
 
 
 @tool
@@ -23,7 +22,7 @@ def get_user_input(prompt: str = "Please provide input") -> str:
 
 
 # Create an agent that has the ability to read, write, run python code, and prompt for user input
-agent = Agent(tools=[file_write, file_read, python_repl, http_request, get_user_input])
+agent = Agent(tools=[http_request, get_user_input])
 
 # Ask the agent a question that uses the available tools
 message = """
